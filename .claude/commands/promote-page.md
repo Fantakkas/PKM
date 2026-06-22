@@ -36,12 +36,22 @@ Set the Stage as Inbox. It will become Evergreen only when it has been used — 
 
 ## Step 6: Draft
 
-Produce the final Note draft:
-- Title (clear, specific, in my own words — not the source's phrasing)
+Produce the final Note as a complete Obsidian file, frontmatter first:
+
+```yaml
+---
+type: note
+stage: inbox
+tags: []
+created: {{date:YYYY-MM-DD}}
+---
+```
+
+Then the note body:
+- Title (heading, clear, specific, in my own words — not the source's phrasing)
 - Body (the idea, rewritten)
-- Why this matters (one or two sentences)
-- Source Page (link or reference)
-- Stage: Inbox
-- Suggested links
+- **Why this matters:** one or two sentences
+- **Source:** [[Page title]] or reference
+- **Links:** [[Note]], [[Person]], [[System]], [[Project]], or [[Area]]
 
 No meta-commentary. Just the Note.

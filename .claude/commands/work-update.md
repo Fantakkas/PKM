@@ -32,4 +32,14 @@ Team, system, and self. A brief, honest read. Not performance. Signal.
 - Short enough to be read, not skimmed
 - Written for someone who needs to understand, not be impressed
 
-Produce the draft. I'll edit from there.
+Produce the draft as a complete Obsidian file, frontmatter first:
+
+```yaml
+---
+type: work-update
+tags: []
+created: {{date:YYYY-MM-DD}}
+---
+```
+
+Then the five sections. I'll edit from there.

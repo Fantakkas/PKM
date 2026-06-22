@@ -30,7 +30,18 @@ Draft a short signal summary I can carry into my next Work Update. Use the five 
 
 ## Step 4: Insights
 
-For each item routed to Note: draft a candidate Note title and a one-sentence why-this-matters. I'll decide whether to promote it. Keep each one atomic — one idea per Note.
+For each item routed to Note: draft a candidate Note as a complete Obsidian file. Keep each one atomic — one idea per Note.
+
+```yaml
+---
+type: note
+stage: inbox
+tags: []
+created: {{date:YYYY-MM-DD}}
+---
+```
+
+Then: title (as a heading), the idea in one or two sentences, and a one-sentence **Why this matters**. I'll decide whether to keep each one.
 
 ---
 

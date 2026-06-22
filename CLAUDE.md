@@ -150,7 +150,81 @@ Task → TickTick. Result → Note / ADR / Doc.
 
 ---
 
-## 6. How Claude Should Behave
+## 6. Frontmatter Conventions
+
+Every note file uses YAML frontmatter. These are the canonical properties and allowed values.
+
+### `type` (required)
+Inferred from the note's folder. Never change this after creation.
+
+| Value | Folder |
+|---|---|
+| `page` | Pages / Inbox |
+| `note` | Notes |
+| `guide` | Guides |
+| `weekly-review` | Weekly Reviews |
+| `daily-note` | Daily Notes |
+| `work-update` | Work Updates |
+| `meeting` | Meetings |
+| `system` | Systems |
+| `person` | People |
+| `project` | Projects |
+| `area` | Areas |
+| `moc` | MOCs |
+
+### `stage` (notes, guides, and projects only)
+Tracks maturity. Do not promote to `evergreen` prematurely.
+
+| Value | Meaning |
+|---|---|
+| `inbox` | Captured, not yet refined |
+| `developing` | Being worked on, not yet stable |
+| `evergreen` | Stable, has been used in another note, decision, or update |
+
+### `tags` (optional)
+Free-form topic list. Keep short. Examples: `platform`, `leadership`, `decision`, `risk`, `career`.
+
+### `created` (required)
+ISO date: `YYYY-MM-DD`. Set once at creation. Never updated.
+
+### Example frontmatter blocks
+
+**Note:**
+```yaml
+---
+type: note
+stage: inbox
+tags: [leadership]
+created: 2026-06-22
+---
+```
+
+**Work Update:**
+```yaml
+---
+type: work-update
+tags: [platform, risk]
+created: 2026-06-22
+---
+```
+
+**Page:**
+```yaml
+---
+type: page
+created: 2026-06-22
+---
+```
+
+### Rules for Claude
+- Always include a frontmatter block when drafting any new note
+- Never omit `type` or `created`
+- Never set `stage: evergreen` when drafting — that is earned through use
+- Use `tags: []` rather than omitting tags entirely
+
+---
+
+## 7. How Claude Should Behave
 
 When advising or drafting:
 
