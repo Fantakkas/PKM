@@ -44,67 +44,86 @@ This system holds understanding and signal.
 
 ## 3. Core Object Types
 
-### Page
-**Purpose:** Raw capture / inbox / scratchpad
-**Use when:** Something feels worth writing but not yet processed.
-**Lifecycle:** Page → (optionally promoted to) Note.
+Organised by folder. Folder numbers are part of the vault structure — do not suggest renaming them.
 
-### Note
-**Purpose:** Atomic, durable ideas or understanding.
-**Use when:** Something is reusable, meaningful, or worth thinking with again.
-Properties typically include:
-- Stage (Inbox → Evergreen)
-- Source Page (optional link)
-- Why this matters
-- Links to other Notes / Systems / People
+### 00 Inbox — `page`
+Raw capture. Something felt worth writing but hasn't been processed yet.
+Lifecycle: Inbox → clarify → route to the right typed folder.
 
-Promotion is intentional and gentle.
+### 01 Daily Notes — `daily-note`
+Working memory for the day. Capture, meetings, light reflection.
+After the day: extract actions → TickTick/Jira, signals → Work Update, insights → knowledge folders. Then clear.
 
-### Guide (Note subtype)
-**Purpose:** Stable practices, definitions, how-to's, and system behaviour.
-Examples: how to complete a Weekly Review, how to promote Pages to Notes, how habits are used.
-Guides protect intent and prevent drift.
+### 02 Weekly Reviews — `weekly-review`
+Structured reflection. Notice patterns, reflect on energy/meaning/direction, choose The One Thing.
 
-### Weekly Review
-**Purpose:** Structured reflection and orientation.
-Used to: notice patterns, reflect on energy/meaning/direction, choose The One Thing, keep the system alive.
+### 10 Meetings — `meeting`
+Capture what happened when a meeting generates signal, obligations, or insight.
 
-### Daily Note
-**Purpose:** Working memory for the day.
-Contains: during-the-day capture, embedded meeting objects, light reflection.
-After the day: extract actions → TickTick/Jira, extract signals → Work Update, extract insights → Notes. Then clear.
-
-### Work Update
-**Purpose:** Narrative + signal layer for leadership and communication. Not a task list. Not Jira mirrored.
+### 11 Work Updates — `work-update`
+Narrative + signal layer for leadership. Not a task list. Not Jira mirrored.
 Answers: What mattered? What moved? What's risky? What needs decision? Are we healthy?
 Used for: 1:1s, SteerCo, senior standups, self-orientation.
 
-### Meeting
-**Purpose:** Capture what happened.
-Used when: a meeting generates signal, obligations, or insight.
-Usually embedded in Daily Notes, then processed.
+### 20 People — `person`
+People as relational nodes. Link to decisions, meetings, systems, responsibilities.
 
-### System
-**Purpose:** Semantic anchor for persistent systems/platforms (e.g. Fabric, EDW, QS, ETL).
-Used to link: risks, decisions, notes, work updates.
-Not a CMDB. Meaning-oriented.
+### 20 Role & Company — `role`
+Context about roles, organisations, and company structure. Semantic anchor, not HR record.
+⚠️ Numbering conflict with `20 People` — one of these folders needs renumbering.
 
-### Person
-**Purpose:** Represent people as relational nodes.
-Used to: link decisions, meetings, notes, systems, responsibilities.
+### 21 Systems — `system`
+Persistent platforms and systems (e.g. Fabric, EDW, QS, ETL). Meaning-oriented, not a CMDB.
+Link to: risks, decisions, notes, work updates.
 
-### Project
-**Purpose:** A change initiative.
-Has: outcome, The One Thing (smallest decisive next action), status, links to Notes/Systems/Work Updates.
+### 30 Projects — `project`
+A change initiative with an outcome, The One Thing, and status.
 
-### Area
-**Purpose:** A responsibility to be kept healthy.
-Examples: Health, Career, Family, Finances, Platform reliability.
+### 31 Decisions — `decision`
+A record of a meaningful choice: what was decided, why, what was rejected, who was involved.
+Not a task. Not a meeting note. A durable record of a reasoning moment.
 
-### Map of Content (MOC)
-**Purpose:** Curated navigation and sensemaking.
-A Note that points to other Notes in a meaningful order.
-Used when: a topic becomes dense, a landscape needs shaping.
+### 32 Artefacts — `artefact`
+Outputs produced: ADRs, diagrams, docs, models, proposals. Link to the project or decision that produced them.
+
+### 40 Concepts — `concept`
+An atomic, durable idea. The core knowledge unit.
+Use when: something is reusable and worth thinking with again.
+Rewrite in own words. Add why it matters. Add at least one link.
+
+### 41 Claims — `claim`
+A specific, arguable assertion. Stronger and more pointed than a concept.
+Use when: you've formed a position worth defending or revisiting.
+
+### 42 Definitions — `definition`
+A precise, stable meaning for a term used in this vault or domain.
+Use when: a word is being used in a specific way that needs anchoring.
+
+### 43 Patterns — `pattern`
+A recurring structure, behaviour, or dynamic you've observed more than once.
+Use when: something keeps happening and deserves a name.
+
+### 50 Books — `book`
+A book reference. Not a summary. A node to link from Literature Notes, Quotes, Concepts.
+
+### 51 Literature Notes — `literature-note`
+Processed insight from a source (book, article, talk). In your own words. Linked to the source.
+Not a copy. Not a highlight dump.
+
+### 52 Quotes — `quote`
+A specific passage worth preserving. Link to source and to any Concepts it connects to.
+
+### 53 Tools — `tool`
+A tool, method, or framework worth remembering. How it works, when to use it, limits.
+
+### 60 Practice — `practice`
+Habits, rituals, disciplines. Things you do repeatedly to stay well or grow.
+
+### 70 Me — `me`
+Personal: values, identity, career narrative, long-arc reflection.
+
+### _Meta — `meta`
+System notes: guides, conventions, MOCs, templates. Protects intent and prevents drift.
 
 ---
 
@@ -112,30 +131,34 @@ Used when: a topic becomes dense, a landscape needs shaping.
 
 ### Capture → Clarify → Route → Reflect
 
-1. Capture in Pages or Daily Notes
+1. Capture in `00 Inbox` or `01 Daily Notes`
 2. Clarify what it is:
    - Action → TickTick/Jira
-   - Signal → Work Update
-   - Insight → Note
+   - Signal → `11 Work Updates`
+   - Idea/position → `40 Concepts`, `41 Claims`, `42 Definitions`, or `43 Patterns`
+   - Source insight → `51 Literature Notes`
+   - Decision → `31 Decisions`
 3. Route accordingly
-4. Reflect weekly
+4. Reflect weekly in `02 Weekly Reviews`
 
 ### Meetings
-- Capture as Meeting object, embed in Daily Note
-- After: actions → TickTick/Jira, signals → Work Update, insights → Notes
+- Capture in `10 Meetings`, note in `01 Daily Notes`
+- After: actions → TickTick/Jira, signals → Work Update, insights → knowledge folders
 
-### Pages → Notes
-Promotion is manual and intentional:
-- Rewrite in own words
-- Add why it matters
-- Add at least one link
-- Preserve source link
+### Inbox → Knowledge
+Promotion is manual and intentional. Choose the right target type:
+- A reusable idea → `40 Concepts`
+- An arguable position → `41 Claims`
+- A term that needs anchoring → `42 Definitions`
+- A recurring structure → `43 Patterns`
+
+For each: rewrite in own words, add why it matters, add at least one wikilink `[[]]`, preserve source link.
 
 ### Thinking Tasks
 Tasks that are cognitive (design, decide, explore) are phrased as:
 > Verb + artefact — e.g. "Draft ownership model", "Write ADR", "Outline options"
 
-Task → TickTick. Result → Note / ADR / Doc.
+Task → TickTick. Result → `32 Artefacts` or `31 Decisions`.
 
 ---
 
@@ -155,24 +178,35 @@ Task → TickTick. Result → Note / ADR / Doc.
 Every note file uses YAML frontmatter. These are the canonical properties and allowed values.
 
 ### `type` (required)
-Inferred from the note's folder. Never change this after creation.
+Inferred from the note's folder. Never change after creation.
 
 | Value | Folder |
 |---|---|
-| `page` | Pages / Inbox |
-| `note` | Notes |
-| `guide` | Guides |
-| `weekly-review` | Weekly Reviews |
-| `daily-note` | Daily Notes |
-| `work-update` | Work Updates |
-| `meeting` | Meetings |
-| `system` | Systems |
-| `person` | People |
-| `project` | Projects |
-| `area` | Areas |
-| `moc` | MOCs |
+| `page` | 00 Inbox |
+| `daily-note` | 01 Daily Notes |
+| `weekly-review` | 02 Weekly Reviews |
+| `meeting` | 10 Meetings |
+| `work-update` | 11 Work Updates |
+| `person` | 20 People |
+| `role` | 20 Role & Company |
+| `system` | 21 Systems |
+| `project` | 30 Projects |
+| `decision` | 31 Decisions |
+| `artefact` | 32 Artefacts |
+| `concept` | 40 Concepts |
+| `claim` | 41 Claims |
+| `definition` | 42 Definitions |
+| `pattern` | 43 Patterns |
+| `book` | 50 Books |
+| `literature-note` | 51 Literature Notes |
+| `quote` | 52 Quotes |
+| `tool` | 53 Tools |
+| `practice` | 60 Practice |
+| `me` | 70 Me |
+| `meta` | _Meta |
 
-### `stage` (notes, guides, and projects only)
+### `stage` (knowledge and project types only)
+Applies to: `concept`, `claim`, `definition`, `pattern`, `literature-note`, `project`, `decision`.
 Tracks maturity. Do not promote to `evergreen` prematurely.
 
 | Value | Meaning |
@@ -182,19 +216,29 @@ Tracks maturity. Do not promote to `evergreen` prematurely.
 | `evergreen` | Stable, has been used in another note, decision, or update |
 
 ### `tags` (optional)
-Free-form topic list. Keep short. Examples: `platform`, `leadership`, `decision`, `risk`, `career`.
+Free-form topic list. Keep short. Examples: `platform`, `leadership`, `risk`, `career`, `architecture`.
 
 ### `created` (required)
 ISO date: `YYYY-MM-DD`. Set once at creation. Never updated.
 
 ### Example frontmatter blocks
 
-**Note:**
+**Concept:**
 ```yaml
 ---
-type: note
+type: concept
 stage: inbox
 tags: [leadership]
+created: 2026-06-22
+---
+```
+
+**Decision:**
+```yaml
+---
+type: decision
+stage: inbox
+tags: [platform, architecture]
 created: 2026-06-22
 ---
 ```
@@ -208,7 +252,7 @@ created: 2026-06-22
 ---
 ```
 
-**Page:**
+**Page (Inbox):**
 ```yaml
 ---
 type: page
@@ -221,6 +265,7 @@ created: 2026-06-22
 - Never omit `type` or `created`
 - Never set `stage: evergreen` when drafting — that is earned through use
 - Use `tags: []` rather than omitting tags entirely
+- When drafting a Concept, Claim, or Pattern: rewrite in the user's own words, include why it matters, include at least one wikilink
 
 ---
 

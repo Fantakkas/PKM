@@ -16,24 +16,35 @@ from datetime import datetime
 from pathlib import Path
 
 # Maps folder name fragments (lowercase) to frontmatter type values.
-# First match wins, so put more specific names first.
+# Matched against each folder component in the file's path. First match wins.
+# Longer/more specific strings are listed before shorter ones to avoid false matches.
 FOLDER_TYPE_MAP = [
-    (["weekly review", "weekly-review", "weekly_review", "weeklies"],   "weekly-review"),
-    (["daily note", "daily-note", "daily_note", "daily notes", "journal"], "daily-note"),
-    (["work update", "work-update", "work_update", "work updates"],     "work-update"),
-    (["meeting", "meetings"],                                            "meeting"),
-    (["guide", "guides"],                                                "guide"),
-    (["system", "systems"],                                              "system"),
-    (["people", "person", "persons", "contacts"],                       "person"),
-    (["project", "projects"],                                            "project"),
-    (["area", "areas"],                                                  "area"),
-    (["moc", "mocs", "map of content", "maps of content"],              "moc"),
-    (["page", "pages", "inbox", "capture"],                             "page"),
-    (["note", "notes"],                                                  "note"),
+    (["02 weekly", "weekly review", "weekly-review", "weeklies"],           "weekly-review"),
+    (["01 daily",  "daily note", "daily-note", "daily notes"],              "daily-note"),
+    (["11 work",   "work update", "work-update", "work updates"],           "work-update"),
+    (["10 meet",   "meetings"],                                              "meeting"),
+    (["literature note", "literature-note", "51 lit"],                      "literature-note"),
+    (["role & company", "role and company", "20 role"],                     "role"),
+    (["20 people", "people", "persons", "contacts"],                        "person"),
+    (["21 system", "systems"],                                               "system"),
+    (["30 project", "projects"],                                             "project"),
+    (["31 decision", "decisions"],                                           "decision"),
+    (["32 artefact", "artefacts", "artifacts"],                             "artefact"),
+    (["40 concept", "concepts"],                                             "concept"),
+    (["41 claim", "claims"],                                                 "claim"),
+    (["42 definition", "definitions"],                                       "definition"),
+    (["43 pattern", "patterns"],                                             "pattern"),
+    (["50 book", "books"],                                                   "book"),
+    (["52 quote", "quotes"],                                                 "quote"),
+    (["53 tool", "tools"],                                                   "tool"),
+    (["60 practice", "practice"],                                            "practice"),
+    (["70 me"],                                                              "me"),
+    (["_meta", "meta"],                                                      "meta"),
+    (["00 inbox", "inbox", "capture", "pages"],                             "page"),
 ]
 
 # Types that get a `stage` property
-STAGED_TYPES = {"note", "guide", "project"}
+STAGED_TYPES = {"concept", "claim", "definition", "pattern", "literature-note", "project", "decision"}
 
 # Folders to skip entirely
 SKIP_FOLDERS = {".git", ".obsidian", ".claude", ".trash"}
