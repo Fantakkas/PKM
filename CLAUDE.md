@@ -1,6 +1,6 @@
 # PKM — Claude Code Context
 
-This repository supports a personal knowledge management system built in Capacities.
+This repository supports a personal knowledge management system built in Obsidian.
 Use this file as the authoritative reference for every session.
 
 ---
@@ -35,7 +35,7 @@ Primary intent:
 | **Jira**                  | Team execution truth, delivery tracking           |
 | **TickTick**              | Personal tasks, habits, commitments               |
 | **Calendar**              | Time commitments                                  |
-| **Capacities (this PKM)** | Meaning, memory, narrative, decisions, reflection |
+| **Obsidian (this PKM)**   | Meaning, memory, narrative, decisions, reflection |
 
 Actions go in Jira or TickTick.
 This system holds understanding and signal.
